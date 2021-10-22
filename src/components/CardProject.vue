@@ -3,16 +3,17 @@
      
       <div class="card-stacked">
         <div class="card-content">
-             <span class="card-title">{{ data? data.name: '' }}</span>
-          <p>{{ data ? data.description: '' }}</p>
-          <p> Tecnologías: {{ data ? data.langs: ''}} </p>
-          <p>Responsable: {{ data ? data.responsable: ''}} </p>
+             <span class="card-title">{{ data.title }}</span>
+          <p>{{  data.description }}</p>
+          <p> Tecnologías: {{ langs }} </p>
+          <p>Responsable: <span v-for="(lang , i) in data.langs"
+          :key="i">{{ i< data.langs.length-1 ? `${lang},` : lang}}</span> </p>
         </div>
         <div class="card-action">
             <div class="row">
-                 <a class="col s6 waves-effect waves-light btn amber darken-3">
+                 <router-link to="/reg-projects" class="col s6 waves-effect waves-light btn amber darken-3">
                       <i class="material-icons">edit</i>
-                 </a>
+                 </router-link>
                  <a class="col s6 waves-effect waves-light btn red darken-3">
                       <i class="material-icons">delete</i>
                   </a>
@@ -28,6 +29,11 @@ export default {
   props: {
     data:Object,
   },
+  components:{
+    langs(){
+      return this.data.langs.length
+    }
+  }
 };
 </script>
 
