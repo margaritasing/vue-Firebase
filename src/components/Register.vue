@@ -34,7 +34,7 @@
             type="password"
             class="validate"
           />
-          <label for="password">Confirm Password</label>
+          <label for="password">Confirmar Password</label>
         </div>
       </div>
 

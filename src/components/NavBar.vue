@@ -52,7 +52,7 @@
       <li>
         <router-link
           v-if="sesion"
-          to="/"
+          to="/login"
           @click="cerrarSesion"
           class="waves-effect waves-light btn red lighten"
         >

@@ -1,10 +1,9 @@
 <template>
   <div class="container">
-    <div class="row ">
+    <div class="row  caja">
       <router-link
         to="/proyectos"
-        class="col s12 waves-effect waves-light btn amber darken-3"
-      >
+        class="col s12 waves-effect waves-light btn amber darken-3">
         <i class="material-icons">arrow_back</i>
         Regresar a la lista
       </router-link>
@@ -18,17 +17,23 @@
               id="first_name"
               type="text"
               v-model="project.title"
-              class="validate"
-            />
+              class="validate"/>
             <label for="first_name">Nombre del Proyecto</label>
+          </div>
+          <div class="input-field col s12">
+            <input
+              id="last_name"
+              type="text"
+              v-model="project.title"
+              class="validate"/>
+            <label for="last_name">Responsable</label>
           </div>
           <div class="input-field col s12">
             <input
               id="last_name"
               v-model="project.description"
               type="text"
-              class="validate"
-            />
+              class="validate"/>
             <label for="last_name">Descripción del Proyecto</label>
           </div>
           <p>
@@ -72,17 +77,27 @@
               <input
                 type="checkbox"
                 v-model="project.langs"
-                value="vue"
+                value="Angular"
                 checked="checked"
               />
-              <span>Vue</span>
+              <span>Angular</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="Laravel"
+                checked="checked"
+              />
+              <span>Laravel</span>
             </label>
           </p>
           <button
             class="btn waves-effect waves-light col s12"
             type="submit"
-            name="action"
-          >
+            name="action">
             Submit
             <i class="material-icons right">send</i>
           </button>
@@ -99,6 +114,7 @@ export default {
       project: {
         title: "",
         description: "",
+        responsable: "",
         langs: [],
         status: true,
       },
@@ -120,5 +136,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.caja{
+  margin-top: 15px;
+
+}
+</style>
 
 
