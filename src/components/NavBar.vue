@@ -6,10 +6,10 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li>
-          <router-link to="/">Home</router-link>
+          <router-link to="/">Registrarse</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/login">Login</router-link>
         </li>
         <li>
           <router-link class="waves-effect waves-light btn purple accent-1" to="/proyectos">Proyectos</router-link>
@@ -20,10 +20,10 @@
 
   <ul class="sidenav" id="mobile-demo">
     <li>
-         <router-link to="/">Home</router-link>
+         <router-link to="/">Registrarse</router-link>
     </li>
      <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/Login">Login</router-link>
      </li>
      <li>
           <router-link to="/proyectos">Proyectos</router-link>
