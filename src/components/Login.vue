@@ -11,18 +11,12 @@
       </div>
      <div class="row">
         <div class="input-field col s12">
-          <input v-model.trim="pass1"  id="password" type="password" class="validate">
+          <input v-model.trim="pass"  id="password" type="password" class="validate">
           <label for="password">Contrasena</label>
         </div>
       </div>
-       <div class="row">
-        <div class="input-field col s12">
-          <input v-model.trim="pass2"  id="passwordconfir" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
 
-      <button class="waves-effect waves-light btn" type="submit">Registrar</button>
+       <button class="waves-effect waves-light btn" type="submit">LogIn</button>
       
     </form>
   </div>
@@ -35,14 +29,13 @@
 export default {
     data: () => ({
         email: "",
-        pass1: "",
-        pass2: ""
+        pass: "",
+     
     }),
 
     methods: {
         async validarusuario(){
-            if(this.pass1 === this.pass2 
-            && this.pass1.length >= 6 
+            if(this.pass.length >= 6 
             && this.email != ""){
                 
                 const API_KEY = "AIzaSyBMHdjiuHgpdlONMRI9fSLLr3MS0HI-5wo"
@@ -53,7 +46,7 @@ export default {
                     method: "POST",
                     body: JSON.stringify({
                         email: this.email,
-                        password: this.pass1,
+                        password: this.pass,
                         returnSecureToken: true                       
                     })
                 })                
