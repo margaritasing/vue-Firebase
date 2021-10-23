@@ -8,7 +8,7 @@
         >
         <ul class="right hide-on-med-and-down">
           <li>
-            <router-link v-if="!sesion" to="/">Register</router-link>
+            <router-link v-if="!sesion" to="/">Registro</router-link>
           </li>
           <li>
             <router-link v-if="!sesion" to="/login">LogIn</router-link>
@@ -38,7 +38,7 @@
 
     <ul class="sidenav" id="mobile-demo">
       <li>
-        <router-link v-if="!sesion" to="/">Register</router-link>
+        <router-link v-if="!sesion" to="/">Registrar</router-link>
       </li>
       <li>
         <router-link v-if="!sesion" to="/login">LogIn</router-link>
