@@ -37,8 +37,8 @@
         </div>
       </div>
 
-      <button class="waves-effect waves-light btn" type="submit">
-        Register
+      <button class="waves-effect waves-light purple darken-4 btn" type="submit">
+        Registrar
       </button>
     </form>
 

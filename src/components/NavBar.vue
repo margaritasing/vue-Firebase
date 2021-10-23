@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <div class="nav-wrapper light-blue">
+      <div class="nav-wrapper purple darken-1">
         <router-link class="brand-logo" to="/">Proyectos</router-link>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
@@ -17,18 +17,16 @@
             <router-link
               v-if="sesion"
               to="/proyectos"
-              class="waves-effect waves-light btn red lighten"
-            >
+              class="waves-effect waves-light btn purple darken-4">
               Proyectos
             </router-link>
           </li>
           <li>
             <router-link
               v-if="sesion"
-              to="/"
+              to="/login"
               @click="cerrarSesion"
-              class="waves-effect waves-light btn red lighten"
-            >
+              class="waves-effect waves-light btn purple darken-4 ">
               Cerrar Sesion
             </router-link>
           </li>
@@ -54,8 +52,7 @@
           v-if="sesion"
           to="/login"
           @click="cerrarSesion"
-          class="waves-effect waves-light btn red lighten"
-        >
+          class="waves-effect waves-light  purple darken-4 btn">
           Cerrar Sesion
         </router-link>
       </li>

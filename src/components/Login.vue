@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
+  
     <div class="container">
+      <div class="row">
+
       <h4>Log In</h4>
       <hr />
-    </div>
-
-    <div v-if="errors" class="col s12 m7">
+        <div v-if="errors" class="col s12 m7">
       <div class="card horizontal">
         <div class="card-stacked">
           <div class="card-content">
@@ -17,7 +17,7 @@
 
     <form @submit.prevent="validarUsuario()" class="col s12">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 l6">
           <input
             v-model.trim="email"
             id="email"
@@ -27,7 +27,7 @@
           <label for="email">Email</label>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s12 l6">
           <input
             v-model.trim="pass"
             id="password"
@@ -38,11 +38,16 @@
         </div>
       </div>
 
-      <button class="waves-effect waves-light btn" type="submit">
+      <button class="waves-effect waves-light purple darken-4 btn" type="submit">
         LogIn
       </button>
     </form>
   </div>
+
+
+    </div>
+
+  
 </template>
 
 <script>
@@ -77,7 +82,6 @@ export default {
             this.errors = true;
           } else {
             this.errors = false;
-            console.log(data);
             localStorage.setItem("user", JSON.stringify(data));
             router.push("/proyectos");
           }

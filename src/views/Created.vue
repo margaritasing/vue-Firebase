@@ -3,16 +3,16 @@
     <div class="row  caja">
       <router-link
         to="/proyectos"
-        class="col s12 waves-effect waves-light btn amber darken-3">
+        class="col s12 waves-effect waves-light btn purple lighten-1">
         <i class="material-icons">arrow_back</i>
         Regresar a la lista
       </router-link>
     </div>
 
     <div class="row">
-      <form @submit.prevent="createProject" class="col s12">
+      <form @submit.prevent="createProject" class="col s12 l10">
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s12 ">
             <input
               id="first_name"
               type="text"
@@ -28,7 +28,7 @@
               class="validate"/>
             <label for="last_name">Responsable</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field col s12 ">
             <input
               id="last_name"
               v-model="project.description"
@@ -95,10 +95,10 @@
             </label>
           </p>
           <button
-            class="btn waves-effect waves-light col s12"
+            class="btn waves-effect waves-light col s12  purple darken-4"
             type="submit"
             name="action">
-            Submit
+            Enviar
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -139,7 +139,7 @@ export default {
 
 <style>
 .caja{
-  margin-top: 15px;
+  margin-top: 20px;
 
 }
 </style>
