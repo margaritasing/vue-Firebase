@@ -1,131 +1,132 @@
 <template>
   <div class="container">
+    <div class="row ">
+      <router-link
+        to="/proyectos"
+        class="col s12 waves-effect waves-light btn amber darken-3"
+      >
+        <i class="material-icons">arrow_back</i>
+        Regresar a la lista
+      </router-link>
+    </div>
+
     <div class="row">
-     <router-link to="/proyectos" class="col s12 waves-effect waves-light btn amber darken-3">
-          <i class="material-icons">arrow_back</i>
-          Regresar a Lista
-    </router-link>
-   </div>
-      <div class="row">
-    <form @submit.prevent="createProject" class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <input  id="first_name" 
-          type="text" 
-          v-model="project.title"
-          class="validate">
-          <label for="first_name">Nombre del proyecto</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="last_name" 
-          type="text" 
-           v-model="project.responsable"
-          class="validate">
-          <label for="last_name">Responsable</label>
-        </div>
-         <div class="input-field col s12">
-          <input id="description" 
-          type="text"
-          v-model="project.description"
-          class="validate">
-          <label for="description">Descripcion</label>
-        </div>
-         <p>
+      <form @submit.prevent="updateProject" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              id="first_name"
+              type="text"
+              v-model="project.title"
+              class="validate"
+              placeholder="Nombre del Proyecto"
+            />
+            <label for="first_name"></label>
+          </div>
+          <div class="input-field col s12">
+            <input
+              id="last_name"
+              v-model="project.description"
+              type="text"
+              class="validate"
+              placeholder="Descripción del Proyecto"
+            />
+            <label for="last_name"></label>
+          </div>
+          <p>
             <label>
-                <input type="checkbox"
+              <input
+                type="checkbox"
                 v-model="project.langs"
-                value="Javascript"
-                 checked="checked" />
-                <span>Javascript</span>
+                value="html"
+                checked="checked"
+              />
+              <span>HTML</span>
             </label>
-         </p>
+          </p>
+
           <p>
             <label>
-                <input type="checkbox" 
-                 v-model="project.langs"
-                 value="Angular"
-                checked="checked" />
-                <span>Angular</span>
-            </label>
-         </p>
-          <p>
-            <label>
-                <input type="checkbox"
-                 v-model="project.langs"
-                 value="Laravel"
-                 checked="checked" />
-                <span>Laravel</span>
-            </label>
-         </p>
-          <p>
-            <label>
-                <input type="checkbox"
-                 v-model="project.langs"
-                 value="React"
-                 checked="checked" />
-                <span>React</span>
-            </label>
-         </p>
-         <p>
-            <label>
-                <input type="checkbox" 
-                 v-model="project.langs"
-                value="Mongo"
-                checked="checked" />
-                <span>Mongo</span>
-            </label>
-         </p>
-         <p>
-            <label>
-                <input type="checkbox"
+              <input
+                type="checkbox"
                 v-model="project.langs"
-                value="Node" 
-                checked="checked" />
-                <span>Node</span>
+                value="css"
+                checked="checked"
+              />
+              <span>CSS</span>
             </label>
-         </p>
-        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
+          </p>
+
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="js"
+                checked="checked"
+              />
+              <span>JavaScript</span>
+            </label>
+          </p>
+
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="vue"
+                checked="checked"
+              />
+              <span>Vue</span>
+            </label>
+          </p>
+          <button
+            class="btn waves-effect waves-light col s12"
+            type="submit"
+            name="action"
+          >
+            Submit
             <i class="material-icons right">send</i>
-        </button>
-        
-      </div>
-      
-     
-    </form>
-    
-   </div>
- </div>
-        
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return  {
-            project: {
-                title: "",
-                responsable: "",
-                langs: [],
-                description:"",
-                status: true,
-            },
-        };
+  data() {
+    return {
+      project: {},
+      id: this.$route.params.id,
+    };
+  },
+  mounted() {
+    this.getProject();
+  },
+  methods: {
+    async getProject() {
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      const res = await fetch(
+        `https://vue-js-a4fb6-default-rtdb.firebaseio.com/projects/${user.localId}/${this.id}.json?auth=${user.idToken}`
+      );
+      const data = await res.json();
+
+      this.project = data;
     },
-    // methods: {
-    //   async createProject(){
-    //     console.log(this.project)
-    //       const res = await fetch("https://vue-js-a4fb6-default-rtdb.firebaseio.com/projects.json",
-    //       {
-    //         method: "POST",
-    //         body: JSON.stringify(this.project),
+    async updateProject() {
+      const user = JSON.parse(localStorage.getItem("user"));
 
-    //       });
-        
-         
-    //    },
-     
-    // },
-
+      await fetch(
+        `https://vue-js-a4fb6-default-rtdb.firebaseio.com/projects/${user.localId}/${this.id}.json?auth=${user.idToken}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(this.project),
+        }
+      );
+    },
+  },
 };
 </script>
-
