@@ -24,7 +24,7 @@
             <input
               id="last_name"
               type="text"
-              v-model="project.title"
+              v-model="project.responsable"
               class="validate"/>
             <label for="last_name">Responsable</label>
           </div>
