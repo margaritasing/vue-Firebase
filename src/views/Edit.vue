@@ -1,10 +1,9 @@
 <template>
   <div class="container">
-    <div class="row ">
+    <div class="row retorno">
       <router-link
         to="/proyectos"
-        class="col s12 waves-effect waves-light btn amber darken-3"
-      >
+        class="col s12 waves-effect waves-light btn purple lighten-1">
         <i class="material-icons">arrow_back</i>
         Regresar a la lista
       </router-link>
@@ -22,6 +21,16 @@
               placeholder="Nombre del Proyecto"
             />
             <label for="first_name"></label>
+          </div>
+          <div class="input-field col s12">
+            <input
+              id="last_name"
+              type="text"
+              v-model="project.responsable"
+              class="validate"
+              placeholder="Responsable"
+            />
+            <label for="last_name"></label>
           </div>
           <div class="input-field col s12">
             <input
@@ -81,11 +90,10 @@
             </label>
           </p>
           <button
-            class="btn waves-effect waves-light col s12"
+            class="btn waves-effect waves-light purple darken-4 col s12"
             type="submit"
-            name="action"
-          >
-            Submit
+            name="action">
+            Enviar
             <i class="material-icons right">send</i>
           </button>
         </div>
@@ -130,3 +138,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.retorno{
+  margin-top: 20px;
+}
+</style>

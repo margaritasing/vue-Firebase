@@ -3,6 +3,9 @@
     <div class="card-stacked">
       <div class="card-content">
         <span class="card-title">{{ data.data.title }}</span>
+         <p>
+          {{ data.data.responsable }}
+        </p>
         <p>
           {{ data.data.description }}
         </p>
