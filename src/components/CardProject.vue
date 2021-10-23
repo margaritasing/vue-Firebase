@@ -2,17 +2,18 @@
   <div class="card horizontal">
      
       <div class="card-stacked">
-        <div class="card-content">
-             <span class="card-title">{{ data.title }}</span>
-          <p>{{  data.description }}</p>
-          <p> Tecnologías: {{ langs }} </p>
-          <p>Responsable: <span v-for="(lang , i) in data.langs"
-          :key="i">{{ i< data.langs.length-1 ? `${lang},` : lang}}</span> </p>
+        <div class="card-content" v-if="data.data">
+             <span class="card-title" >{{ data.data.title }}</span>
+          <p >{{  data.data.description }}</p>
+          <p > Responsable: {{ data.data.responsable }} </p>
+          <p>Tecnologias: <span v-for="(lang , i) in data.data.langs"
+          :key="i">{{ i< data.data.langs.length-1 ? `${lang},` : lang}}</span> </p>
         </div>
         <div class="card-action">
             <div class="row">
-                 <router-link to="/reg-projects" class="col s6 waves-effect waves-light btn amber darken-3">
-                      <i class="material-icons">edit</i>
+                 <router-link :to="`/edit-project`" 
+                 class="col s6 waves-effect waves-light btn amber darken-3">
+                 <i class="material-icons">edit</i>
                  </router-link>
                  <a class="col s6 waves-effect waves-light btn red darken-3">
                       <i class="material-icons">delete</i>
@@ -31,7 +32,7 @@ export default {
   },
   components:{
     langs(){
-      return this.data.langs.length
+      return this.data.data.langs.length
     }
   }
 };
