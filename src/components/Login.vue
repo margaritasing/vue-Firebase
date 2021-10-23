@@ -1,58 +1,91 @@
 <template>
+  <div class="row">
+    <div class="container">
+      <h4>Log In</h4>
+      <hr />
+    </div>
 
-<div class="container">
-    <div class="row">
-    <form @submit.prevent="validarusuario" class="col s12">
-        <div class="row">
-        <div class="input-field col s12">
-          <input  v-model.trim="email" id="email" type="email" class="validate">
-          <label for="email">Correo</label>
+    <div v-if="errors" class="col s12 m7">
+      <div class="card horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>Email / Password Invalidos</h5>
+          </div>
         </div>
       </div>
-     <div class="row">
+    </div>
+
+    <form @submit.prevent="validarUsuario()" class="col s12">
+      <div class="row">
         <div class="input-field col s12">
-          <input v-model.trim="pass"  id="password" type="password" class="validate">
-          <label for="password">Contrasena</label>
+          <input
+            v-model.trim="email"
+            id="email"
+            type="email"
+            class="validate"
+          />
+          <label for="email">Email</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input
+            v-model.trim="pass"
+            id="password"
+            type="password"
+            class="validate"
+          />
+          <label for="password">Password</label>
         </div>
       </div>
 
-       <button class="waves-effect waves-light btn" type="submit">LogIn</button>
-      
+      <button class="waves-effect waves-light btn" type="submit">
+        LogIn
+      </button>
     </form>
   </div>
-</div>
-        
- 
 </template>
 
 <script>
+import router from "../router/index";
+
 export default {
-    data: () => ({
-        email: "",
-        pass: "",
-     
-    }),
+  data: () => ({
+    email: "",
+    pass: "",
+    errors: false,
+  }),
+  methods: {
+    async validarUsuario() {
+      if (this.pass.length >= 6 && this.email != "") {
+        const API_KEY = "AIzaSyBMHdjiuHgpdlONMRI9fSLLr3MS0HI-5wo";
 
-    methods: {
-        async validarusuario(){
-            if(this.pass.length >= 6 
-            && this.email != ""){
-                
-                const API_KEY = "AIzaSyBMHdjiuHgpdlONMRI9fSLLr3MS0HI-5wo"
-
-
-                const res =  await fetch(`https://identitytoolkit.googleapis.com/v1/
-                accounts:signUp?key=${API_KEY}`,{
-                    method: "POST",
-                    body: JSON.stringify({
-                        email: this.email,
-                        password: this.pass,
-                        returnSecureToken: true                       
-                    })
-                })                
+        try {
+          const res = await fetch(
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
+            {
+              method: "POST",
+              body: JSON.stringify({
+                email: this.email,
+                password: this.pass,
+                returnSecureToken: true,
+              }),
             }
-        },
-    },
+          );
+          const data = await res.json();
 
+          if (data.error) {
+            this.errors = true;
+          } else {
+            this.errors = false;
+            console.log(data);
+            localStorage.setItem("user", JSON.stringify(data));
+            router.push("/proyectos");
+          }
+        } catch (error) {}
+      } else {
+        return;
+      }
+    },
+  },
 };
 </script>
