@@ -1,5 +1,5 @@
 <template>
-  <div class="card horizontal s12 l6 purple lighten-1"  v-if="data.data.status">
+  <div class="card horizontal  grey lighten-2"  v-if="data.data.status">
     <div class="card-stacked">
       <div class="card-content">
         <span class="card-title">{{ data.data.title }}</span>
@@ -11,7 +11,17 @@
         </p>
         <p>
           Tecnologías:
-          <span v-for="(lang, i) in data.data.langs" :key="i">{{i < data.data.langs.length - 1 ? `${lang.toUpperCase()}, `: lang.toUpperCase()
+          <span v-for="(lang, a) in data.data.langs" :key="a">{{a < data.data.langs.length - 1 ? `${lang.toUpperCase()}, `: lang.toUpperCase()
+          }}</span>
+        </p>
+         <p>
+          Prioridad:
+          <span v-for="(prioridad, x) in data.data.prioridad" :key="x">{{ x < data.data.prioridad.lengtj -1? `${prioridad.toUpperCase()},`: prioridad.toUpperCase() }}</span>
+         
+        </p>
+         <p>
+          Estado:
+          <span v-for="( estado, j) in data.data. estado" :key="j">{{j < data.data. estado.length - 1 ? `${ estado.toUpperCase()}, `:  estado.toUpperCase()
           }}</span>
         </p>
       </div>

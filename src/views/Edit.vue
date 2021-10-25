@@ -10,19 +10,19 @@
     </div>
 
     <div class="row">
-      <form @submit.prevent="updateProject" class="col s12">
+      <form @submit.prevent="updateProject" class="col s12 l12">
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s12 l6">
             <input
               id="first_name"
               type="text"
               v-model="project.title"
               class="validate"
-              placeholder="Nombre del Proyecto"
+              placeholder="Nombre De La Tarea"
             />
             <label for="first_name"></label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field col s12 l6">
             <input
               id="last_name"
               type="text"
@@ -38,10 +38,12 @@
               v-model="project.description"
               type="text"
               class="validate"
-              placeholder="Descripción del Proyecto"
+              placeholder="Descripción De La Tarea"
             />
             <label for="descripcion"></label>
           </div>
+         <div class="col-s12-l6">
+           <h5>Lenguajes</h5>
           <p>
             <label>
               <input
@@ -77,23 +79,120 @@
               <span>JavaScript</span>
             </label>
           </p>
+             <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="typescript"
+                checked="checked"
+              />
+              <span>Typescript</span>
+            </label>
+          </p>
 
           <p>
             <label>
               <input
                 type="checkbox"
                 v-model="project.langs"
-                value="vue"
+                value="Java"
                 checked="checked"
               />
-              <span>Vue</span>
+              <span>Java</span>
             </label>
           </p>
-          <button
+             <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="PHP"
+                checked="checked"
+              />
+              <span>PHP</span>
+            </label>
+          </p>
+             <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="python"
+                checked="checked"
+              />
+              <span>Python</span>
+            </label>
+          </p>
+        </div>
+
+      <div class="col-s12-l6"> <!-- prioridades -->
+         <h5>Prioridad de la Tarea</h5>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.prioridad"
+                value="Muy Importante"
+                checked="checked"
+              />
+              <span>Muy Importante</span>
+            </label>
+          </p>
+           <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.prioridad"
+                value="Importante"
+                checked="checked"
+              />
+              <span>Importante</span>
+            </label>
+          </p>
+           <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.prioridad"
+                value="Poco Importante"
+                checked="checked"
+              />
+              <span>Poco Importante</span>
+            </label>
+          </p>
+          </div>
+
+       <div class="col-s12-l6"> <!-- estado -->
+         <h5>Estado de la Tarea</h5>
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.estado"
+                value="En Curso"
+                checked="checked"
+              />
+              <span>En Curso</span>
+            </label>
+          </p>
+           <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.estado"
+                value="Finalizada"
+                checked="checked"
+              />
+              <span>Finalizada</span>
+            </label>
+          </p>
+         </div>
+         <button
             class="btn waves-effect waves-light purple darken-4 col s12"
             type="submit"
             name="action">
-            Enviar
+            Editar
             <i class="material-icons right">send</i>
           </button>
         </div>

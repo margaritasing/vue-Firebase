@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col s12  m6 l6">
+    <div class="col s12  l6 contenedor">
       <card-project v-for="(project, i) in projects" :key="i" :data="project" />
     </div>
     
@@ -40,3 +40,5 @@ export default {
   },
 };
 </script>
+
+

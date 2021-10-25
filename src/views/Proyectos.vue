@@ -1,17 +1,34 @@
 <template>
   <div class="container">
-  <div class="col s12 l12">
-      <h1>Vista Proyectos</h1>
+  <div class="row">
+    <div class="col s12 l12">
+      <h2 class="texto">Vista Proyecto</h2>
     <hr />
+     </div>
     <div class="row">
       <router-link
         to="/reg-projects"
-        class="col s12 waves-effect waves-light btn purple lighten-1">
+        class="col s12 l12 waves-effect waves-light btn purple lighten-1">
         <i class="material-icons">add</i>
-        Crear Proyecto
+        Crear Tarea
       </router-link>
     </div>
        <contenedor />
+    </div>
+ 
+
+    <div class="row">
+      <footer class="page-footer purple darken-1">
+        
+          <div class="footer-copyright">
+            <div class="container">
+            © 2021 Copyright-
+            LibiaMFM
+          
+            <a class="grey-text text-lighten-4 right" href="https://github.com/margaritasing">Mi GitHub</a>
+            </div>
+          </div>
+        </footer>
     </div>
   
   </div>
@@ -26,5 +43,22 @@ export default {
   components: { Contenedor },
 };
 </script>
+
+<style scoped>
+
+.texto{
+  text-align: center;
+}
+
+.page-footer{
+    
+    bottom: 0;
+    margin-top: 50px;
+    width: 950px;
+   
+}
+
+
+</style>
 
 
