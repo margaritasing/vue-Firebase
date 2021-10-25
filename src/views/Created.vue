@@ -232,6 +232,7 @@ export default {
         title: "",
         description: "",
         responsable: "",
+        titulo: "",
         langs: [],
         prioridad: [],
         estado:[],
@@ -252,6 +253,10 @@ export default {
       );
       showAlert()                
     },
+
+    createTitulo()
+
+
   },
 };
 </script>
