@@ -30,11 +30,11 @@
           </div>
           <div class="input-field col s12 ">
             <input
-              id="last_name"
+              id="descripcion"
               v-model="project.description"
               type="text"
               class="validate"/>
-            <label for="last_name">Descripción del Proyecto</label>
+            <label for="descripcion">Descripción del Proyecto</label>
           </div>
           <p>
             <label>
@@ -108,6 +108,33 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+import router from '../router';
+
+const showAlert = () =>{
+     Swal.fire({
+        title: 'Estas seguro de volver?',
+        text: "Quiere agregar mas tareas",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, quiero seguir agregando!'
+      }).then((result) => {
+        if (!result.isConfirmed) {
+          Swal.fire(
+            'Tu tarea fue agregada',
+             router.push("proyectos")
+            
+          )
+        }else{
+          router.push("/reg-projects")
+         
+        }
+      })
+}
+
+
 export default {
   data() {
     return {
@@ -131,7 +158,7 @@ export default {
           body: JSON.stringify(this.project),
         }
       );
-      
+      showAlert()                
     },
   },
 };

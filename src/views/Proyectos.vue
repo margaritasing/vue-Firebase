@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h1>Vista Proyectos</h1>
+  <div class="col s12 l12">
+      <h1>Vista Proyectos</h1>
     <hr />
     <div class="row">
       <router-link
@@ -10,12 +11,16 @@
         Crear Proyecto
       </router-link>
     </div>
-    <contenedor />
+       <contenedor />
+    </div>
+  
   </div>
+  
 </template>
 
 <script>
 import Contenedor from "../components/Contenedor.vue";
+
 
 export default {
   components: { Contenedor },

@@ -5,7 +5,7 @@
 
       <h4>Log In</h4>
       <hr />
-        <div v-if="errors" class="col s12 m7">
+        <!-- <div v-if="(errors)" class="col s12 m7">
       <div class="card horizontal">
         <div class="card-stacked">
           <div class="card-content">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <form @submit.prevent="validarUsuario()" class="col s12">
       <div class="row">
@@ -52,6 +52,23 @@
 
 <script>
 import router from "../router/index";
+import Swal from 'sweetalert2';
+
+const showAlert = () =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Uppsss.!!',
+        text: 'Contrasena incorrecta',
+    })
+}
+
+const showEmail = () =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Uppsss.!!',
+        text: 'Email No Existe',
+    })
+}
 
 export default {
   data: () => ({
@@ -80,16 +97,22 @@ export default {
 
           if (data.error) {
             this.errors = true;
+            showEmail();
           } else {
             this.errors = false;
             localStorage.setItem("user", JSON.stringify(data));
             router.push("/proyectos");
           }
-        } catch (error) {}
+        } catch (error) {        
+
+        }
       } else {
-        return;
+        showAlert();
+         
       }
     },
+  
   },
+ 
 };
 </script>

@@ -2,6 +2,8 @@
   <div class="home">
      <register />
   </div>
+
+  
 </template>
 
 <script>
@@ -13,6 +15,7 @@ export default {
   name: 'Home',
   components: {
     Register
-  }
+  },
+  
 }
 </script>

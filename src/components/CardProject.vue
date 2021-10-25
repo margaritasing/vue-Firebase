@@ -1,5 +1,5 @@
 <template>
-  <div class="card horizontal" v-if="data.data.status">
+  <div class="card horizontal s12 l6 purple lighten-1"  v-if="data.data.status">
     <div class="card-stacked">
       <div class="card-content">
         <span class="card-title">{{ data.data.title }}</span>
@@ -36,15 +36,18 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
   props: {
     data: Object,
   },
   methods: {
     async deleteProject() {
+     
       const id = this.data.id;
       const user = JSON.parse(localStorage.getItem("user"));
-
+    
       const res = await fetch(
         `https://vue-js-a4fb6-default-rtdb.firebaseio.com/projects/${user.localId}/${id}.json?auth=${user.idToken}`,
         {
@@ -52,11 +55,32 @@ export default {
           body: JSON.stringify({ status: false }),
         }
       );
-      const data = await res.json();
 
-      this.data.data.status = data["status"];
-    },
+           
+     const data = await res.json(); 
+     Swal.fire({
+      title: 'Estas seguro (a) de borrar la tarea?',
+      text: "No podras recuperar este contenido",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si quiero eliminarla..!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.data.data.status = data["status"];                 
+        Swal.fire(
+          'Borrado',
+          'Tu tarea fue eliminada',
+          'success',         
+        )
+      }
+    }) 
+ },
+
+    
   },
+  
 };
 </script>
 

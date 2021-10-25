@@ -11,8 +11,7 @@
             v-model.trim="email"
             id="email"
             type="email"
-            class="validate"
-          />
+            class="validate"/>
           <label for="email">Email</label>
         </div>
 
@@ -21,8 +20,7 @@
             v-model.trim="pass1"
             id="password"
             type="password"
-            class="validate"
-          />
+            class="validate"/>
           <label for="password">Password</label>
         </div>
 
@@ -31,8 +29,7 @@
             v-model.trim="pass2"
             id="passwordConfirm"
             type="password"
-            class="validate"
-          />
+            class="validate"/>
           <label for="password">Confirmar Password</label>
         </div>
       </div>
@@ -49,7 +46,16 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 import router from "../router/index";
+
+const showAlert = () =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Uppsss.!!',
+        text: 'La contrasena debe ser mayor a 6 caracteres y debe contener al menos (Ab./)',
+    })
+}
 
 export default {
   data: () => ({
@@ -57,6 +63,8 @@ export default {
     pass1: "",
     pass2: "",
   }),
+
+  
   methods: {
     async validarUsuario() {
       if (
@@ -64,6 +72,7 @@ export default {
         this.pass1.length >= 6 &&
         this.email != ""
       ) {
+        
         const API_KEY = "AIzaSyBMHdjiuHgpdlONMRI9fSLLr3MS0HI-5wo";
 
         const res = await fetch(
@@ -83,7 +92,7 @@ export default {
 
         router.push("/proyectos");
       } else {
-        return;
+        showAlert()
       }
     },
   },

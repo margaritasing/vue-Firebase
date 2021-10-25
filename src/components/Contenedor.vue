@@ -1,8 +1,9 @@
 <template>
   <div class="row">
-    <div class="col s12 m7">
+    <div class="col s12  m6 l6">
       <card-project v-for="(project, i) in projects" :key="i" :data="project" />
     </div>
+    
   </div>
 </template>
 

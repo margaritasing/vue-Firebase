@@ -34,13 +34,13 @@
           </div>
           <div class="input-field col s12">
             <input
-              id="last_name"
+              id="descripcion"
               v-model="project.description"
               type="text"
               class="validate"
               placeholder="Descripción del Proyecto"
             />
-            <label for="last_name"></label>
+            <label for="descripcion"></label>
           </div>
           <p>
             <label>
@@ -103,6 +103,22 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+import router from '../router';
+
+const showAlert = () =>{
+     Swal.fire({
+          icon: 'success',
+          title: 'Tarea actualizada',
+          showConfirmButton: false,
+          timer: 1500
+      }).then((result) => {
+        if (!result.isConfirmed) {
+          router.push("/proyectos")          
+        }
+    })
+}
+
 export default {
   data() {
     return {
@@ -134,6 +150,7 @@ export default {
           body: JSON.stringify(this.project),
         }
       );
+      showAlert()
     },
   },
 };
