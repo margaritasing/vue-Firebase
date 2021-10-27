@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <loading  v-if="load"/>
-    <div class="col s12  l6 contenedor">
+    <div class="col s12 m6 contenedor ">
       <card-project v-for="(project, i) in projects" :key="i" :data="project" />
     </div>
     
@@ -50,5 +50,7 @@ export default {
   },
 };
 </script>
+
+
 
 

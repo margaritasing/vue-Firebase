@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-  <div class="row">
-    <div class="col s12 l12">
+  <div class="row ">
+    <div class="col s12 m12 l12 ">
       <h2 class="texto">Vista Proyecto</h2>
     <hr />
      </div>
     <div class="row">
       <router-link
         to="/reg-projects"
-        class="col s12 l12 waves-effect waves-light btn purple lighten-1">
+        class="col s12 m12 l12 waves-effect waves-light btn purple lighten-1">
         <i class="material-icons">add</i>
         Crear Tarea
       </router-link>
