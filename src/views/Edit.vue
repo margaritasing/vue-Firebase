@@ -126,67 +126,48 @@
           </p>
         </div>
 
-      <div class="col-s12-l6"> <!-- prioridades -->
+         <div class="col-s12-l6"> <!-- prioridades -->
          <h5>Prioridad de la Tarea</h5>
-          <p>
-            <label>
-              <input
-                type="checkbox"
-                v-model="project.prioridad"
-                value="Muy Importante"
-                checked="checked"
-              />
-              <span>Muy Importante</span>
-            </label>
-          </p>
-           <p>
-            <label>
-              <input
-                type="checkbox"
-                v-model="project.prioridad"
-                value="Importante"
-                checked="checked"
-              />
-              <span>Importante</span>
-            </label>
-          </p>
-           <p>
-            <label>
-              <input
-                type="checkbox"
-                v-model="project.prioridad"
-                value="Poco Importante"
-                checked="checked"
-              />
-              <span>Poco Importante</span>
-            </label>
-          </p>
-          </div>
-
-       <div class="col-s12-l6"> <!-- estado -->
+              <p>
+                <label>
+                  <input v-model="project.prioridad" name="group" value="Muy Importante" type="radio"  />
+                  <span>Muy Importante</span>
+                </label>
+              </p>
+                  <p>
+                <label>
+                  <input v-model="project.prioridad" name="group"  value="Importante" type="radio" />
+                  <span>Importante</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input v-model="project.prioridad" class="with-gap" name="group" value="Poco Importante" type="radio" />
+                  <span>Poco Importante</span>
+                </label>
+              </p>
+        </div>
+      
+         <div class="col-s12-l6"> <!-- estado -->
          <h5>Estado de la Tarea</h5>
-          <p>
-            <label>
-              <input
-                type="checkbox"
-                v-model="project.estado"
-                value="En Curso"
-                checked="checked"
-              />
-              <span>En Curso</span>
-            </label>
-          </p>
-           <p>
-            <label>
-              <input
-                type="checkbox"
-                v-model="project.estado"
-                value="Finalizada"
-                checked="checked"
-              />
-              <span>Finalizada</span>
-            </label>
-          </p>
+            <p>
+              <label>
+                <input class="with-gap" name="estado" type="radio" value="Inicio" v-model="project.estado"/>
+                <span>Inicio</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input name="estado" type="radio" value="En-Curso" v-model="project.estado"/>
+                <span>En Curso</span>
+              </label>
+            </p>
+              <p>
+              <label>
+                <input name="estado" type="radio" value="Finalizada" v-model="project.estado"/>
+                <span>Finalizada</span>
+              </label>
+            </p>
          </div>
          <button
             class="btn waves-effect waves-light purple darken-4 col s12"

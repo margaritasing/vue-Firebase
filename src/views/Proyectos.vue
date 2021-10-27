@@ -17,19 +17,7 @@
     </div>
  
 
-    <div class="row">
-      <footer class="page-footer purple darken-1">
-        
-          <div class="footer-copyright">
-            <div class="container">
-            © 2021 Copyright-
-            LibiaMFM
-          
-            <a class="grey-text text-lighten-4 right" href="https://github.com/margaritasing">Mi GitHub</a>
-            </div>
-          </div>
-        </footer>
-    </div>
+   
   
   </div>
   
@@ -50,13 +38,7 @@ export default {
   text-align: center;
 }
 
-.page-footer{
-    
-    bottom: 0;
-    margin-top: 50px;
-    width: 950px;
-   
-}
+
 
 
 </style>

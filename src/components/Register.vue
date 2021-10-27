@@ -30,7 +30,7 @@
             id="passwordConfirm"
             type="password"
             class="validate"/>
-          <label for="password">Confirmar Password</label>
+          <label for="passwordConfirm">Confirmar Password</label>
         </div>
       </div>
 
