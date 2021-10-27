@@ -10,7 +10,7 @@
     "vue": {
         "pwa": {
             "name": "Gestor de Proyectos",
-            "themecolor": "#700B97",
+            "themecolor": "#8e24aa",
             "appleMobileWebAppCapable": "yes",
             "appleMobileWebAppStatusBarStyle": "black-translucent"
         }
