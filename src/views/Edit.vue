@@ -67,7 +67,17 @@
               <span>CSS</span>
             </label>
           </p>
-
+          <p>
+            <label>
+              <input
+                type="checkbox"
+                v-model="project.langs"
+                value="db"
+                checked="checked"
+              />
+              <span>MySql-Base De Datos</span>
+            </label>
+          </p>
           <p>
             <label>
               <input

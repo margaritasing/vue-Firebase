@@ -1,23 +1,19 @@
 <template>
   
-    <div class="container">
+    <div class="container center ">
       <div class="row">
 
-      <h4>Log In</h4>
-      <hr />
-        <!-- <div v-if="(errors)" class="col s12 m7">
-      <div class="card horizontal">
-        <div class="card-stacked">
-          <div class="card-content">
-            <h5>Email / Password Invalidos</h5>
-          </div>
-        </div>
-      </div>
-    </div> -->
+      <h4>Log In</h4> 
+      <div class="col s12 center  offset-l4 l4 ">         
+            <div class="col s12 m12 l12">
+              <img src="../../public/img/Elpuente.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>        
+      </div> 
+           
 
     <form @submit.prevent="validarUsuario()" class="col s12">
       <div class="row">
-        <div class="input-field col s12 l6">
+        <div class="input-field col s12 m6 offset-l3 l6 ">
           <input
             v-model.trim="email"
             id="email"
@@ -27,7 +23,7 @@
           <label for="email">Email</label>
         </div>
 
-        <div class="input-field col s12 l6">
+        <div class="input-field col s12 m6 offset-l3 l6">
           <input
             v-model.trim="pass"
             id="password"
@@ -43,9 +39,19 @@
       </button>
     </form>
   </div>
+  <footer class="  purple darken-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l12 m12 s12">
+                <h5 class="white-text">Libia MFM</h5>               
+              </div>
+            </div>
+          </div>
+        </footer> 
 
-
-    </div>
+  
+   
+</div>
 
   
 </template>
@@ -116,3 +122,6 @@ export default {
  
 };
 </script>
+
+
+

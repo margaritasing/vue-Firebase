@@ -2,8 +2,8 @@
   <div class="container">
   <div class="row ">
     <div class="col s12 m12 l12 ">
-      <h2 class="texto">Vista Proyecto</h2>
-    <hr />
+      <h2 class="texto">Estructura del Proyecto</h2>
+   
      </div>
     <div class="row">
       <router-link

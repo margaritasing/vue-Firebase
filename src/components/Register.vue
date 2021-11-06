@@ -1,11 +1,15 @@
 <template>
   <div class="row">
     <div class="container">
-      <h4>Registrar</h4>
-      <hr />
+     <h4>Registrar</h4>
+       <div class="col s12 m12 offset-m2 l6 ">         
+            <div class="col s12 m12 l12">
+              <img src="../../public/img/Elpuente.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>        
+      </div> 
 
-        <form @submit.prevent="validarUsuario" class="col s12">
-      <div class="row">
+  <form @submit.prevent="validarUsuario" class="col s12 m6 ">
+      <div class="row center">
         <div class="input-field col s12">
           <input
             v-model.trim="email"
@@ -37,11 +41,9 @@
       <button class="waves-effect waves-light purple darken-4 btn" type="submit">
         Registrar
       </button>
-    </form>
-
-  </div>
-
-  
+    </form> 
+    
+  </div>  
   </div>
 </template>
 
@@ -98,3 +100,4 @@ export default {
   },
 };
 </script>
+
